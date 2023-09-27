@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {NgForm} from "@angular/forms";
 import {ButtonAction, TableRow} from "../../shared/components/table/table.models";
 import {Router} from "@angular/router";
-import {NotificationsService} from "angular2-notifications";
 import {BsModalService} from "ngx-bootstrap/modal";
+import {NotificationUtils} from "../../shared/services/NotificationUtils";
 
 @Component({
   selector: 'app-requirements',
@@ -23,7 +22,7 @@ export class RequirementsComponent implements OnInit {
         bootstrapIcon: 'bi bi-pencil-fill',
         classes: 'btn-primary',
         style: '',
-        onClick: (index: number) => this.router.navigate(['/requirement-details'])
+        onClick: (index: number) => this.onEdit()
       }, {
         name: 'test',
         bootstrapIcon: 'bi bi-trash-fill',
@@ -42,38 +41,22 @@ export class RequirementsComponent implements OnInit {
   }];
 
 
-  constructor(private router: Router, private notifications: NotificationsService, private modalService: BsModalService) {
+  constructor(private router: Router, private notifications: NotificationUtils, private modalService: BsModalService) {
   }
 
   ngOnInit(): void {
   }
 
-  onCreateNewItem(myForm: NgForm) {
-  }
-
   onDelete(index: number) {
-    this.notifications.success(
-      "Deleted",
-      "Requirement 1 has been deleted successfully"
-      , {
-        theClass: 'success',
-        timeOut: 2000,
-        showProgressBar: false
-      }
-    );
+    this.notifications.showSuccessMessage("Deleted", "Requirement 1 has been deleted successfully");
   }
 
   onAddNew() {
-    this.notifications.success(
-      "Created",
-      `New Requirement has been successfully created`
-      , {
-        theClass: 'success',
-        timeOut: 2000,
-        showProgressBar: false
-      }
-    );
+    this.notifications.showSuccessMessage("Created", `New Requirement has been successfully created`);
   }
 
 
+  private onEdit() {
+    this.notifications.showWarningMessage("Created", `New Requirement has been successfully created`);
+  }
 }

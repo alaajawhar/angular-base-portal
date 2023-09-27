@@ -65,11 +65,6 @@ export class HeaderComponent implements OnInit {
     role: "Software Developer",
     items: [
       {
-        id: 'profileId1',
-        bootstrapIcon: 'bi bi-folder',
-        title: 'Projects',
-      },
-      {
         id: 'profileId2',
         bootstrapIcon: 'bi bi-gear',
         title: 'Account Settings',
@@ -81,19 +76,19 @@ export class HeaderComponent implements OnInit {
       },
     ],
   };
-  applicationName: string = AppModule.APPLICATION_NAME;
 
   onProfileItemClick(profileId: string) {
     console.log(`On a specific profile item click. profileId : [${profileId}]`)
-  }
-
-  sidebarToggle() {
-    this.document.body.classList.toggle('toggle-sidebar');
   }
 
   constructor(@Inject(DOCUMENT) private document: Document) {
   }
 
   ngOnInit(): void {
+  }
+
+  applicationName: string = AppModule.APPLICATION_NAME;
+  sidebarToggle() {
+    this.document.body.classList.toggle('toggle-sidebar');
   }
 }

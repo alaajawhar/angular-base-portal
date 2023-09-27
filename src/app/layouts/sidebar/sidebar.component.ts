@@ -15,7 +15,7 @@ export class SidebarComponent implements OnInit {
       title: 'Requirements',
       child: [
         {
-          routing: '/test/1',
+          routing: '/requirements',
           title: 'requirement1',
         },
         {
@@ -32,10 +32,6 @@ export class SidebarComponent implements OnInit {
         {
           routing: '/test/1',
           title: 'story1',
-        },
-        {
-          routing: '/test/2',
-          title: 'story2',
         },
       ],
     },

@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {HeaderComponent} from './layouts/header/header.component';
 import {FooterComponent} from './layouts/footer/footer.component';
 import {SidebarComponent} from './layouts/sidebar/sidebar.component';
-import {RequirementsComponent} from './screens/requirements/requirements.component';
+import {RequirementsComponent} from './modules/requirements/requirements.component';
 import {SimpleNotificationsModule} from "angular2-notifications";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CollapseModule} from "ngx-bootstrap/collapse";
@@ -19,9 +19,9 @@ import {TableComponent} from './shared/components/table/table.component';
 import {DragDropModule} from "@angular/cdk/drag-drop";
 import {MultiTabComponent} from './shared/components/multi-tab/multi-tab.component';
 import {TabComponent} from './shared/components/multi-tab/tab/tab.component';
-import {PagesError404Component} from "./shared/pages-error404/pages-error404.component";
-import {TestOneComponent} from './screens/test-one/test-one.component';
-import {TestTwoComponent} from './screens/test-two/test-two.component';
+import {PagesError404Component} from "./modules/pages-error404/pages-error404.component";
+import {TestOneComponent} from './modules/test-one/test-one.component';
+import {TestTwoComponent} from './modules/test-two/test-two.component';
 
 @NgModule({
   declarations: [
