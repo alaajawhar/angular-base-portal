@@ -1,0 +1,17 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Screen Mockup Details</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item active">Screen Mockup Details</li>
+      </ol>
+    </nav>
+  </div>
+  <section class="section">
+    <app-table [tableHeaders]="columnHeaders" [tableRecords]="columnData" [title]="title"
+               [mainActionButtons]="mainActionButton"
+               [description]="desc">
+    </app-table>
+  </section>
+</main>
