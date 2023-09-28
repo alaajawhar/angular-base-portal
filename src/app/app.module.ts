@@ -22,6 +22,9 @@ import {TabComponent} from './shared/components/multi-tab/tab/tab.component';
 import {PagesError404Component} from "./modules/pages-error404/pages-error404.component";
 import {TestOneComponent} from './modules/test-one/test-one.component';
 import {TestTwoComponent} from './modules/test-two/test-two.component';
+import {UsersProfileComponent} from "./modules/users-profile/users-profile.component";
+import {PagesLoginComponent} from "./modules/pages-login/pages-login.component";
+import {PagesRegisterComponent} from "./modules/pages-register/pages-register.component";
 
 @NgModule({
   declarations: [
@@ -35,13 +38,17 @@ import {TestTwoComponent} from './modules/test-two/test-two.component';
     TabComponent,
     PagesError404Component,
     TestOneComponent,
-    TestTwoComponent
+    TestTwoComponent,
+    UsersProfileComponent,
+    PagesLoginComponent,
+    PagesRegisterComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    SimpleNotificationsModule.forRoot(), CollapseModule,
+    SimpleNotificationsModule.forRoot(),
+    CollapseModule,
     FormsModule,
     AngularMultiSelectModule,
     DragDropModule,
@@ -55,8 +62,4 @@ import {TestTwoComponent} from './modules/test-two/test-two.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
-  public static APPLICATION_NAME: string = 'Test Portal';
-  public static OWNER_COMPANY: string = 'AJProduction';
-  public static OWNER_COMPANY_URL: string = 'www.ajproduction.com';
-  public static TAB_BAR_TEXT: string = 'Test-Portal';
 }

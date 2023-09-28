@@ -20,5 +20,6 @@ export interface HeaderProfile {
 export interface ProfileItem {
   id: string;
   bootstrapIcon: string;
+  onClick: () => void;
   title: string;
 }

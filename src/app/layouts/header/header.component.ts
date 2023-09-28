@@ -1,7 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {DOCUMENT} from '@angular/common'
 import {HeaderNotification, HeaderProfile} from "./header.component.model";
-import {AppModule} from "../../app.module";
+import {Router} from "@angular/router";
+import {AppConstants} from "../../app.constants";
 
 @Component({
   selector: 'app-header',
@@ -67,27 +68,26 @@ export class HeaderComponent implements OnInit {
       {
         id: 'profileId2',
         bootstrapIcon: 'bi bi-gear',
+        onClick: () => this.router.navigate(['/profile']),
         title: 'Account Settings',
       },
       {
         id: 'profileId3',
         bootstrapIcon: 'bi bi-box-arrow-right',
+        onClick: () => this.router.navigate(['/login']),
         title: 'Sign Out',
       },
     ],
   };
 
-  onProfileItemClick(profileId: string) {
-    console.log(`On a specific profile item click. profileId : [${profileId}]`)
-  }
-
-  constructor(@Inject(DOCUMENT) private document: Document) {
+  constructor(@Inject(DOCUMENT) private document: Document, private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
-  applicationName: string = AppModule.APPLICATION_NAME;
+  applicationName: string = AppConstants.APPLICATION_NAME;
+
   sidebarToggle() {
     this.document.body.classList.toggle('toggle-sidebar');
   }

@@ -9,9 +9,12 @@
     </nav>
   </div>
   <section class="section">
-    <app-table [tableHeaders]="columnHeaders" [tableRecords]="columnData" [title]="title"
+    <app-table [tableHeaders]="columnHeaders"
+               [tableRecords]="columnData" [title]="title"
                [mainActionButtons]="mainActionButton"
-               [description]="desc">
+               [description]="description"
+               [paginationConfig]="paginationConfig"
+               (onChangePage)="onPageChange($event)">
     </app-table>
   </section>
 </main>

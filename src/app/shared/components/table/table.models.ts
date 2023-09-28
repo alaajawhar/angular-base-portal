@@ -9,3 +9,7 @@ export interface TableRow {
   values: string[];
   actionButtons: ButtonAction[]
 }
+export interface PaginationConfig {
+  nbOfPages: number;
+  onChangePageAction: (pageIndex: number) => void;
+}

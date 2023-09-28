@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AppModule} from "../../app.module";
+import {AppConstants} from "../../app.constants";
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +7,7 @@ import {AppModule} from "../../app.module";
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  productOwner: string = AppModule.OWNER_COMPANY;
+  productOwner: string = AppConstants.OWNER_COMPANY;
   constructor() { }
 
   ngOnInit(): void {

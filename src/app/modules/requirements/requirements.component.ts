@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {ButtonAction, TableRow} from "../../shared/components/table/table.models";
+import {ButtonAction, PaginationConfig, TableRow} from "../../shared/components/table/table.models";
 import {Router} from "@angular/router";
 import {BsModalService} from "ngx-bootstrap/modal";
 import {NotificationUtils} from "../../shared/services/NotificationUtils";
+import {SweetAlert} from "../../shared/utils/SweetAlert";
+
 
 @Component({
   selector: 'app-requirements',
@@ -12,7 +14,7 @@ import {NotificationUtils} from "../../shared/services/NotificationUtils";
 export class RequirementsComponent implements OnInit {
 
   title: string = "Requirements"
-  desc: string = "Add, edit and delete your requirements"
+  description: string = "Add, edit and delete your requirements"
   columnHeaders: string[] = ['Name', 'Type', 'Date']
   columnData: TableRow[] = [
     {
@@ -32,13 +34,19 @@ export class RequirementsComponent implements OnInit {
       }]
     }]
 
-  mainActionButton: ButtonAction[] = [{
-    name: 'Add',
-    bootstrapIcon: 'bi bi-trash-fill',
-    classes: 'btn-primary',
-    style: '',
-    onClick: () => this.onAddNew()
-  }];
+  mainActionButton: ButtonAction[] = [
+    {
+      name: 'Add',
+      bootstrapIcon: 'bi bi-trash-fill',
+      classes: 'btn-primary',
+      style: '',
+      onClick: () => this.onAddNew()
+    }
+  ];
+  paginationConfig: PaginationConfig = {
+    nbOfPages: 10,
+    onChangePageAction: (pageIndex: number) => this.onPageChange(pageIndex)
+  }
 
 
   constructor(private router: Router, private notifications: NotificationUtils, private modalService: BsModalService) {
@@ -48,15 +56,22 @@ export class RequirementsComponent implements OnInit {
   }
 
   onDelete(index: number) {
-    this.notifications.showSuccessMessage("Deleted", "Requirement 1 has been deleted successfully");
+    SweetAlert.confirmDelete(
+      'Are you sure?',
+      `You won't be able to revert this!`,
+      () => this.notifications.showSuccessMessage("Deleted", "Requirement 1 has been deleted successfully")
+    );
   }
 
   onAddNew() {
     this.notifications.showSuccessMessage("Created", `New Requirement has been successfully created`);
   }
 
-
   private onEdit() {
-    this.notifications.showWarningMessage("Created", `New Requirement has been successfully created`);
+    this.notifications.showWarningMessage("Performance Issue", `New Requirement may cause performance issues`);
+  }
+
+  onPageChange(pageNumber: number) {
+    console.log(pageNumber);
   }
 }

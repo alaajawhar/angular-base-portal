@@ -1,5 +1,6 @@
 import {Component, ElementRef} from '@angular/core';
 import {Router} from '@angular/router';
+import {AppRoutingModule} from "./app-routing.module";
 
 @Component({
   selector: 'app-root',
@@ -9,24 +10,11 @@ import {Router} from '@angular/router';
 export class AppComponent {
   title = 'Test Portal';
 
-  commonExceptions: string[] = [
-    '/pages-register',
-    '/pages-login',
-    '/error404',
-    '/use-case-diagram-canvas',
-  ]
+  appHeaderExceptions: string[] = AppRoutingModule.appHeaderExceptions;
 
-  appHeaderExceptions: string[] = [
-    ...this.commonExceptions
-  ]
+  appSideBarExceptions: string[] = AppRoutingModule.appSideBarExceptions;
 
-  appSideBarExceptions: string[] = [
-    ...this.commonExceptions
-  ]
-
-  appFooterExceptions: string[] = [
-    ...this.commonExceptions
-  ]
+  appFooterExceptions: string[] = AppRoutingModule.appFooterExceptions;
 
   constructor(private elementRef: ElementRef, public _router: Router) {
   }
