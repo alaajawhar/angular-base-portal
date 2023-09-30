@@ -20,4 +20,5 @@ export class PagesRegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 }

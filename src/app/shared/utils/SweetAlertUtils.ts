@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
 
-export class SweetAlert {
+export class SweetAlertUtils {
 
   static confirmDelete(title: string, subtitle: string, onConfirmAction: () => void) {
     Swal.fire({

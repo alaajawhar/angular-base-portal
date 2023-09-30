@@ -58,9 +58,9 @@
         <div class="text-center" *ngIf="tableRecords == undefined || tableRecords?.length == 0"><p>No Records</p></div>
         <nav aria-label="Page navigation example" *ngIf="tableRecords != undefined && tableRecords.length != 0 && paginationConfig != undefined && paginationConfig.nbOfPages != 0">
           <ul class="pagination justify-content-center">
-            <li class="page-item" [ngClass]="this.selectedPageNumber == 1? 'disabled': ''"><a class="page-link" (click)="onPrevious()">Previous</a></li>
+            <li class="page-item" [ngClass]="this.selectedPageNumber == 0? 'disabled': ''"><a class="page-link" (click)="onPrevious()">Previous</a></li>
             <li class="page-item" [ngClass]="this.selectedPageNumber == i? 'disabled': ''" *ngFor="let _ of [].constructor(paginationConfig.nbOfPages); let i = index"><a class="page-link" (click)="onPageChange(i)">{{ i + 1  }}</a></li>
-            <li class="page-item" [ngClass]="this.selectedPageNumber == paginationConfig.nbOfPages? 'disabled': ''"><a class="page-link" (click)="onNext()">Next</a></li>
+            <li class="page-item" [ngClass]="this.selectedPageNumber == paginationConfig.nbOfPages- 1? 'disabled': ''"><a class="page-link" (click)="onNext()">Next</a></li>
           </ul>
         </nav>
       </div>

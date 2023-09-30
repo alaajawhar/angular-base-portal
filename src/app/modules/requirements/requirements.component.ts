@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ButtonAction, PaginationConfig, TableRow} from "../../shared/components/table/table.models";
+import {ButtonAction, PaginationConfig, TableRecord} from "../../shared/components/table/table.models";
 import {Router} from "@angular/router";
 import {BsModalService} from "ngx-bootstrap/modal";
 import {NotificationUtils} from "../../shared/services/NotificationUtils";
-import {SweetAlert} from "../../shared/utils/SweetAlert";
+import {SweetAlertUtils} from "../../shared/utils/SweetAlertUtils";
 
 
 @Component({
@@ -16,7 +16,7 @@ export class RequirementsComponent implements OnInit {
   title: string = "Requirements"
   description: string = "Add, edit and delete your requirements"
   columnHeaders: string[] = ['Name', 'Type', 'Date']
-  columnData: TableRow[] = [
+  columnData: TableRecord[] = [
     {
       values: ['Requirement 1', 'Feature', '2016-05-26'],
       actionButtons: [{
@@ -44,7 +44,7 @@ export class RequirementsComponent implements OnInit {
     }
   ];
   paginationConfig: PaginationConfig = {
-    nbOfPages: 10,
+    nbOfPages: 5,
     onChangePageAction: (pageIndex: number) => this.onPageChange(pageIndex)
   }
 
@@ -56,7 +56,7 @@ export class RequirementsComponent implements OnInit {
   }
 
   onDelete(index: number) {
-    SweetAlert.confirmDelete(
+    SweetAlertUtils.confirmDelete(
       'Are you sure?',
       `You won't be able to revert this!`,
       () => this.notifications.showSuccessMessage("Deleted", "Requirement 1 has been deleted successfully")

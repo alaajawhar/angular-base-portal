@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {ButtonAction, PaginationConfig, TableRow} from "./table.models";
+import {ButtonAction, PaginationConfig, TableRecord} from "./table.models";
 
 @Component({
   selector: 'app-table',
@@ -12,12 +12,10 @@ export class TableComponent implements OnInit {
   @Input() title: string = '';
   @Input() description: string = '';
   @Input() tableHeaders: string[] = [];
-  @Input() tableRecords: TableRow[] = [];
+  @Input() tableRecords: TableRecord[] = [];
   @Input() showPagination: boolean = true;
   @Input() mainActionButtons: ButtonAction[] = [];
   @Input() paginationConfig: PaginationConfig = undefined!;
-
-  @Output() onChangePage: EventEmitter<number> = new EventEmitter<number>();
 
   /* INTERNAL */
   selectedPageNumber: number = 0;
@@ -48,7 +46,7 @@ export class TableComponent implements OnInit {
 
   async onPageChange(pageNumber: number) {
     this.selectedPageNumber = pageNumber;
-    this.onChangePage.emit(pageNumber)
+    this.paginationConfig.onChangePageAction(pageNumber);
   }
 
 }
