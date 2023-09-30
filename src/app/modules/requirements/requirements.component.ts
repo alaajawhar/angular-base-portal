@@ -1,5 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {ButtonAction, PaginationConfig, TableRecord} from "../../shared/components/table/table.models";
+import {
+  ButtonAction,
+  PaginationConfig,
+  TableFilter,
+  TableFilterEnum,
+  TableRecord
+} from "../../shared/components/table/table.models";
 import {Router} from "@angular/router";
 import {BsModalService} from "ngx-bootstrap/modal";
 import {NotificationUtils} from "../../shared/services/NotificationUtils";
@@ -15,7 +21,63 @@ export class RequirementsComponent implements OnInit {
 
   title: string = "Requirements"
   description: string = "Add, edit and delete your requirements"
+
+  inputText: string = ''
+  inputNumeric: number = undefined!;
+  date: Date = new Date();
+  time: Date = new Date();
+  color: string = '';
+  selectOptions: string = '';
+  multiSelectOptions: string[] = [];
+  tableFilters: TableFilter = {
+    filters: [
+      {
+        title: 'Input Text',
+        filerType: TableFilterEnum.INPUT_TEXT,
+        in: undefined,
+        out: this.inputText
+      },
+      {
+        title: 'Input Numeric',
+        filerType: TableFilterEnum.INPUT_NUMERIC,
+        in: undefined,
+        out: this.inputNumeric,
+      },
+      {
+        title: 'Date',
+        filerType: TableFilterEnum.DATE_PICKER,
+        in: undefined,
+        out: this.date,
+      },
+      {
+        title: 'Time',
+        filerType: TableFilterEnum.TIME_PICKER,
+        in: undefined,
+        out: this.time,
+      },
+      {
+        title: 'Select Options',
+        filerType: TableFilterEnum.SELECT_OPTION,
+        in: ['option1', 'option2'],
+        out: this.selectOptions,
+      },
+      {
+        title: 'Multi-Select Options',
+        filerType: TableFilterEnum.MULTI_SELECT_OPTION,
+        in: ['option1', 'option2'],
+        out: this.multiSelectOptions,
+      }, {
+        title: 'Color',
+        filerType: TableFilterEnum.COLOR_PICKER,
+        in: '#000000',
+        out: this.color,
+      },
+    ],
+    onFilterClick: () => this.onFilter()
+  }
+
   columnHeaders: string[] = ['Name', 'Type', 'Date']
+
   columnData: TableRecord[] = [
     {
       values: ['Requirement 1', 'Feature', '2016-05-26'],
@@ -53,6 +115,10 @@ export class RequirementsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  onFilter() {
+    console.log("Filter Button has been clicked!")
   }
 
   onDelete(index: number) {

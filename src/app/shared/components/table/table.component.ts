@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {ButtonAction, PaginationConfig, TableRecord} from "./table.models";
+import {Component, Input, OnInit} from '@angular/core';
+import {ButtonAction, PaginationConfig, TableFilter, TableFilterEnum, TableRecord} from "./table.models";
 
 @Component({
   selector: 'app-table',
@@ -11,6 +11,7 @@ export class TableComponent implements OnInit {
   /* EXPOSED */
   @Input() title: string = '';
   @Input() description: string = '';
+  @Input() tableFilters: TableFilter = undefined!;
   @Input() tableHeaders: string[] = [];
   @Input() tableRecords: TableRecord[] = [];
   @Input() showPagination: boolean = true;
@@ -19,6 +20,7 @@ export class TableComponent implements OnInit {
 
   /* INTERNAL */
   selectedPageNumber: number = 0;
+  tableFilterEnum: typeof TableFilterEnum = TableFilterEnum;
 
   constructor() {
   }
