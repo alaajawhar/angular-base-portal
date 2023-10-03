@@ -14,29 +14,29 @@
         </div>
         <div class="accordion" id="accordionExample">
           <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo"> <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Filter </button></h2>
+            <h2 class="accordion-header" id="headingTwo"> <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> <i class="bi bi-funnel pe-2"></i>  Filter </button></h2>
             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                 <form class="row g-3">
                   <div class="col-md-4" *ngFor="let filter of tableFilters.filters; let i = index;" [ngSwitch]="filter.filerType">
                     <div *ngSwitchCase="tableFilterEnum.INPUT_TEXT">
-                      <label for="idText{{i}}" class="col-sm-4 form-label">{{ filter.title }}</label>
+                      <label for="idText{{i}}" class="col-sm-10 form-label">{{ filter.title }}</label>
                       <input id="idText{{i}}" type="text" class="form-control" [value]="filter.out">
                     </div>
                     <div *ngSwitchCase="tableFilterEnum.INPUT_NUMERIC">
-                      <label for="idNumeric{{i}}" class="col-sm-4 form-label">{{ filter.title }}</label>
+                      <label for="idNumeric{{i}}" class="col-sm-10 form-label">{{ filter.title }}</label>
                       <input id="idNumeric{{i}}" type="text" class="form-control" [value]="filter.out? filter.out: ''">
                     </div>
                     <div *ngSwitchCase="tableFilterEnum.DATE_PICKER">
-                      <label for="inputDate{{i}}" class="col-sm-4 col-form-label">{{ filter.title }}</label>
+                      <label for="inputDate{{i}}" class="col-sm-10 col-form-label">{{ filter.title }}</label>
                       <div id="inputDate{{i}}" class="col-sm-10"><input type="date" class="form-control" [value]="filter.out? filter.out: ''"></div>
                     </div>
                     <div *ngSwitchCase="tableFilterEnum.TIME_PICKER">
-                      <label for="inputTime{{i}}" class="col-sm-4 col-form-label">{{ filter.title }}</label>
+                      <label for="inputTime{{i}}" class="col-sm-10 col-form-label">{{ filter.title }}</label>
                       <div id="inputTime{{i}}" class="col-sm-10"><input type="time" class="form-control" [value]="filter.out? filter.out: ''"></div>
                     </div>
                     <div *ngSwitchCase="tableFilterEnum.SELECT_OPTION">
-                      <label for="inputSelect{{i}}" class="col-sm-4 col-form-label">{{ filter.title }}</label>
+                      <label for="inputSelect{{i}}" class="col-sm-10 col-form-label">{{ filter.title }}</label>
                       <select class="form-select" aria-label="Default select example" [(ngModel)]="filter.out" [ngModelOptions]="{standalone: true}">
                         <option *ngFor="let resultValue of filter.in; let j =index" [ngValue]="resultValue">
                           {{resultValue}}
@@ -44,7 +44,7 @@
                       </select>
                     </div>
                     <div *ngSwitchCase="tableFilterEnum.MULTI_SELECT_OPTION">
-                      <label for="inputTime{{i}}" class="col-sm-4 col-form-label">{{ filter.title }}</label>
+                      <label for="inputTime{{i}}" class="col-sm-10 col-form-label">{{ filter.title }}</label>
                       <div id="inputTime{{i}}" class="col-sm-10"><input type="time" class="form-control" [value]="filter.out? filter.out: ''"></div>
 <!--                      <angular2-multiselect [data]="dropdownList" [(ngModel)]="primarySelectedItems"-->
 <!--                                            [settings]="dropdownSettings"-->
@@ -53,10 +53,6 @@
 <!--                                            (onSelectAll)="onSelectAll($event)"-->
 <!--                                            (onDeSelectAll)="onDeSelectAll($event)">-->
 <!--                      </angular2-multiselect>-->
-                    </div>
-                    <div *ngSwitchCase="tableFilterEnum.COLOR_PICKER">
-                      <label for="inputColor{{i}}" class="col-sm-4 col-form-label">{{ filter.title }}</label>
-                      <div class="col-sm-10"> <input type="color" class="form-control form-control-color" id="exampleColorInput" [value]="filter.out? filter.out: ''" title="Choose your color"></div>
                     </div>
                   </div>
 <!--                  <div class="col-md-4">-->

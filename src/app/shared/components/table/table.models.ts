@@ -25,7 +25,6 @@ export enum TableFilterEnum {
   MULTI_SELECT_OPTION = 'MULTI_SELECT_OPTION',
   DATE_PICKER = 'DATE_PICKER',
   TIME_PICKER = 'TIME_PICKER',
-  COLOR_PICKER = 'COLOR_PICKER',
 }
 
 export interface TableRecord {

@@ -44,7 +44,19 @@ export class RequirementsComponent implements OnInit {
         out: this.inputNumeric,
       },
       {
-        title: 'Date',
+        title: 'Select Options',
+        filerType: TableFilterEnum.SELECT_OPTION,
+        in: ['option1', 'option2'],
+        out: this.selectOptions,
+      },
+      {
+        title: 'From Date',
+        filerType: TableFilterEnum.DATE_PICKER,
+        in: undefined,
+        out: this.date,
+      },
+      {
+        title: 'To Date',
         filerType: TableFilterEnum.DATE_PICKER,
         in: undefined,
         out: this.date,
@@ -56,22 +68,11 @@ export class RequirementsComponent implements OnInit {
         out: this.time,
       },
       {
-        title: 'Select Options',
-        filerType: TableFilterEnum.SELECT_OPTION,
-        in: ['option1', 'option2'],
-        out: this.selectOptions,
-      },
-      {
         title: 'Multi-Select Options',
         filerType: TableFilterEnum.MULTI_SELECT_OPTION,
         in: ['option1', 'option2'],
         out: this.multiSelectOptions,
-      }, {
-        title: 'Color',
-        filerType: TableFilterEnum.COLOR_PICKER,
-        in: '#000000',
-        out: this.color,
-      },
+      }
     ],
     onFilterClick: () => this.onFilter()
   }
@@ -82,8 +83,8 @@ export class RequirementsComponent implements OnInit {
     {
       values: ['Requirement 1', 'Feature', '2016-05-26'],
       actionButtons: [{
-        name: 'edit',
-        bootstrapIcon: 'bi bi-pencil-fill',
+        name: 'View',
+        bootstrapIcon: 'bi bi-eye-fill',
         classes: 'btn-primary',
         style: '',
         onClick: (index: number) => this.onEdit()

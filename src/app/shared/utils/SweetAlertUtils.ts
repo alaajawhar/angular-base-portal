@@ -6,7 +6,7 @@ export class SweetAlertUtils {
     Swal.fire({
       title: title,
       text: subtitle,
-      icon: 'warning',
+      icon: 'error',
       confirmButtonText: 'Yes, delete it!',
       cancelButtonText: 'Cancel',
       showCancelButton: true,

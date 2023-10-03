@@ -12,7 +12,7 @@ export class SidebarComponent implements OnInit {
     {
       bootstrapIcon: 'bi bi-list-check',
       routing: '/requirements',
-      title: 'Requirements',
+      title: 'Group1',
       child: [
         {
           routing: '/requirements',
@@ -27,7 +27,7 @@ export class SidebarComponent implements OnInit {
     {
       bootstrapIcon: 'bi bi-grid',
       routing: '/user-stories',
-      title: 'User Stories',
+      title: 'Group2',
       child: [
         {
           routing: '/test/1',
